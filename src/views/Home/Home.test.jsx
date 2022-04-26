@@ -1,3 +1,6 @@
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import Profile from '../../components/Profile/Profile';
 
 const user = {
   id: 1,
@@ -10,6 +13,9 @@ const user = {
   color: 'crimson',
 }
 
-test('Should render the user profile', () => {
-
+describe('profile', () => {
+  test('Should render the user profile', async () => {
+    
+  })
 })
+
