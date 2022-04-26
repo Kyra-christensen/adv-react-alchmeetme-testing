@@ -15,7 +15,25 @@ const user = {
 
 describe('profile', () => {
   test('Should render the user profile', async () => {
-    
+    render(
+      <MemoryRouter>
+        <Profile user={user} />
+      </MemoryRouter>
+    );
+
+    const name = await screen.findByText('Vonta');
+    const motto = await screen.findByText('Res Non Verba');
+    const interestsHeading = await screen.findByText('Interests');
+    const avatar = await screen.findByAltText('avatar');
+    const headerImg = await screen.findByAltText('header');
+    const likesList = await screen.findByRole('list');
+
+    expect(name.textContent).toEqual('Vonta');
+    expect(motto.textContent).toEqual('Res Non Verba');
+    expect(interestsHeading.textContent).toEqual('Interests');
+    expect(avatar).toBeInTheDocument();
+    expect(headerImg).toBeInTheDocument();
+    expect(likesList.children.length).toEqual(user.likes.length);
   })
 })
 
